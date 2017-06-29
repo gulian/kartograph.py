@@ -153,7 +153,7 @@ def shape2geometry(shp, ignore_holes=False, min_area=False, bbox=False, proj=Non
         geom = shape2polygon(shp, ignore_holes=ignore_holes, min_area=min_area, proj=proj)
     elif shp.shapeType in (3, 13):  # line
         geom = shape2line(shp, proj=proj)
-    elif shp.shapeType == 1: # point
+    elif shp.shapeType in (1, 8): # point and multipoint
         geom = shape2point(shp, proj=proj)
     else:
         raise KartographError('unknown shape type (%d)' % shp.shapeType)
